@@ -11,12 +11,18 @@
       <ul class="flex flex-row mt-1">
         <!-- Navigation Links -->
         <li>
-          <a class="px-2" routerLink="/about" routerLinkActive="text-indigo-400"
+          <a
+            class="px-2 hover:text-indigo-400"
+            routerLink="/about"
+            routerLinkActive="text-indigo-400"
             >About</a
           >
         </li>
         <li *ngIf="!(auth.isAuthenticated$ | async); else autheLinks">
-          <a class="px-2" href="#" (click)="openModal($event)"
+          <a
+            class="px-2 hover:text-indigo-400"
+            href="#"
+            (click)="openModal($event)"
             >Login / Register</a
           >
         </li>
@@ -24,7 +30,7 @@
         <ng-template #autheLinks>
           <li>
             <a
-              class="px-2"
+              class="px-2 hover:text-indigo-400"
               routerLink="/manage"
               routerLinkActive="text-indigo-400"
               [queryParams]="{ sort: '1' }"
@@ -33,14 +39,18 @@
           </li>
           <li>
             <a
-              class="px-2"
+              class="px-2 hover:text-indigo-400"
               routerLink="/upload"
               routerLinkActive="text-indigo-400"
               >Upload</a
             >
           </li>
           <li>
-            <a class="px-2" (click)="auth.logout($event)">Logout</a>
+            <a
+              class="px-2 cursor-pointer hover:text-indigo-400"
+              (click)="auth.logout($event)"
+              >Logout</a
+            >
           </li>
         </ng-template>
       </ul>
